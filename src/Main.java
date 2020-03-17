@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(
@@ -12,6 +14,17 @@ public class Main {
                sunk (by whichever player), the game will end. GLHF!
                 """
         );
+        Scanner scan = new Scanner(System.in);
+        Player player1 = new Player();
+        System.out.println("Enter Player 1 name: ");
+        player1.setName(scan.nextLine());
+
+        Player player2 = new Player();
+        System.out.println("Enter Player 2 name: ");
+        player2.setName(scan.nextLine());
+
+        System.out.println("Okay, " + player1.getName() + " and " + player2.getName() + "! Get ready to start!");
+
         Board newBoard = new Board();
         newBoard.printGameBoard();
     }
