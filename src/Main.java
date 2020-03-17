@@ -2,6 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        char[][] gameBoard = {
+                {' ', '1', '2', '3', '4', '5', '6', '7', '8', '9'},
+                {'A', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'B', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'C', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'D', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'E', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'F', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'G', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'H', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
+                {'I', '~', '~', '~', '~', '~', '~', '~', '~', '~'}
+        };
+        Board p1Board = new Board(); //player1's actual board
+        Board p2Board = new Board(); //player2's actual board
         System.out.println(
                 """
                Welcome to Battleship! This is a 2-person game where you each have your own map to place your ships!
@@ -24,8 +38,33 @@ public class Main {
         player2.setName(scan.nextLine());
 
         System.out.println("Okay, " + player1.getName() + " and " + player2.getName() + "! Get ready to start!");
+        System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
+        player1.setShipCoordinate(scan.nextLine());
+        System.out.println("Vertical or Horizontal? (H/V): ");
+        player1.setVertHor(scan.next().charAt(0));
+        Battleship b1 = new Battleship();
+        b1.setSize(4);
+        b1.setSymbol('b');
+        b1.placeShip(gameBoard, 4, 'b', player1.getShipCoordinate(), player1.getVertHor(), player1.placedBattleship);
+        p1Board.printGameBoard(gameBoard);
 
-        Board newBoard = new Board();
-        newBoard.printGameBoard();
+
+
+
+        //creating new boards for display only (player1 gets player2Display, p2 gets p1Display
+        Board p2Display = new Board();
+        Board p1Display = new Board();
+
+/*
+Commenting out for testing purposes
+
+        //player1 gets player2's board (without the ships' locations)
+        System.out.println(player2.getName() + "'s board: ");
+        p2Display.printGameBoard();
+        //player2 gets player1's board
+        System.out.println(player1.getName() + "'s board: ");
+        p1Display.printGameBoard();
+
+ */
     }
 }

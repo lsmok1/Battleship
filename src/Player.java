@@ -11,4 +11,22 @@ public class Player {
     public String getName() {
         return name;
     }
+
+    private String shipCoordinate;
+    public void setShipCoordinate(String shipCoordinate) {
+        this.shipCoordinate = shipCoordinate;
+    }
+    public String getShipCoordinate() {
+        return shipCoordinate;
+    }
+
+    public char vertHor;
+    public void setVertHor(char vertHor) {
+        this.vertHor = vertHor;
+    }
+    public char getVertHor() {
+        return vertHor;
+    }
+
+    private int missileCoordinate;
 }
