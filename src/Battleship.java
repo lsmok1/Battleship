@@ -3,53 +3,62 @@ public class Battleship extends Ship {
     void placeShip(char[][] gameBoard, int size, char symbol, String shipCoordinate, char vertHor, boolean placed) {
 
         for (int i = 1; i <= size; i++) {
-            int horizontalPlacement =  Character.getNumericValue(shipCoordinate.charAt(1)) + i++;
+            int horizontalPlacement = Character.getNumericValue(shipCoordinate.charAt(1)) + i;
             switch (shipCoordinate.charAt(0)) {
                 case 'a', 'A':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[1][horizontalPlacement] = symbol;
-                        case 'v', 'V' -> gameBoard[1 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[1][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[1 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'b', 'B':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[2][i] += symbol;
-                        case 'v', 'V' -> gameBoard[2 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[2][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[2 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'c', 'C':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[3][i] += symbol;
-                        case 'v', 'V' -> gameBoard[3 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[3][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[3 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'd', 'D':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[4][i] += symbol;
-                        case 'v', 'V' -> gameBoard[4 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[4][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[4 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'e', 'E':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[5][i] += symbol;
-                        case 'v', 'V' -> gameBoard[5 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[5][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[5 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'f', 'F':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[6][i] += symbol;
-                        case 'v', 'V' -> gameBoard[6 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[6][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[6 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'g', 'G':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[7][i] += symbol;
-                        case 'v', 'V' -> gameBoard[7 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[7][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[7 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'h', 'H':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[8][i] += symbol;
-                        case 'v', 'V' -> gameBoard[8 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[8][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[8 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 case 'i', 'I':
                     switch (vertHor) {
-                        case 'h', 'H' -> gameBoard[9][i] += symbol;
-                        case 'v', 'V' -> gameBoard[9 + i][Character.getNumericValue(shipCoordinate.charAt(1))] += symbol;
+                        case 'h', 'H' -> gameBoard[9][horizontalPlacement - 1] = symbol;
+                        case 'v', 'V' -> gameBoard[9 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
                     }
+                    break;
                 default:
                     System.out.println("Can't place here!");
             }
