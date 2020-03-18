@@ -36,18 +36,46 @@ public class Main {
         Player player2 = new Player();
         System.out.println("Enter Player 2 name: ");
         player2.setName(scan.nextLine());
-
         System.out.println("Okay, " + player1.getName() + " and " + player2.getName() + "! Get ready to start!");
-        System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
-        player1.setShipCoordinate(scan.nextLine());
-        System.out.println("Vertical or Horizontal? (H/V): ");
-        player1.setVertHor(scan.next().charAt(0));
-        Battleship b1 = new Battleship();
-        b1.setSize(4);
-        b1.setSymbol('b');
-        b1.placeShip(gameBoard, 4, 'b', player1.getShipCoordinate(), player1.getVertHor(), player1.placedBattleship);
-        p1Board.printGameBoard(gameBoard);
+            while (!player1.placedBattleship) {
+                Battleship b1 = new Battleship();
+                b1.setSize(4);
+                b1.setSymbol('b');
+                System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
 
+                player1.setShipCoordinate(scan.nextLine());
+                for (;;) {
+                    System.out.println("Vertical or Horizontal? (H/V): ");
+                    player1.setVertHor(scan.next().charAt(0));
+                    if (player1.getVertHor() == 'v' || player1.getVertHor() == 'V' || player1.getVertHor() == 'h' || player1.getVertHor() == 'H') {
+                        break;
+                    } else {
+                        System.out.println("NOT A VALID ENTRY");
+//                        System.out.println("Vertical or Horizontal? (H/V): ");
+//                        player1.setVertHor(scan.next().charAt(0));
+                    }
+
+                }
+                b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor(), player1.placedBattleship);
+                p1Board.printGameBoard(gameBoard);
+                player1.placedBattleship = true;
+//                System.out.println("Are you sure you want to place your battleship at: " + player1.getShipCoordinate().toUpperCase() + " (" + player1.getVertHor() + ")?");
+//                char areYouSure = scan.next().charAt(0);
+//                player1.placedBattleship = areYouSure == 'y';
+//                if (areYouSure == 'n') {
+//                    player1.setShipCoordinate(null);
+//                    player1.setVertHor('\u0000');
+//                    player.place
+//                }
+            }
+//        while (!player1.placedCarrier) {
+//            System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
+//            player1.setShipCoordinate(scan.nextLine());
+//            System.out.println("Vertical or Horizontal? (H/V): ");
+//            player1.setVertHor(scan.next().charAt(0));
+//            Carrier c1 = new Carrier();
+//
+//        }
 
 
 
