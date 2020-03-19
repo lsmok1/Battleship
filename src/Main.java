@@ -46,10 +46,14 @@ public class Main {
                 System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
                 player1.setShipCoordinate(scan.nextLine());
                 System.out.println("Vertical or Horizontal? (H/V): ");
-
-                player1.setVertHor(scan.next().charAt(0));
+                player1.setVertHor(scan.nextLine().charAt(0));
                 if (b1.placed) {
                     break;
+                } else {
+                    System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
+                    player1.setShipCoordinate(scan.nextLine());
+                    System.out.println("Vertical or Horizontal? (H/V): ");
+                    player1.setVertHor(scan.nextLine().charAt(0));
                 }
 
                 b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
