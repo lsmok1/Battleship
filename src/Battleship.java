@@ -6,8 +6,9 @@ public class Battleship extends Ship {
 
         for (int i = 1; i <= size; i++) {
             //takes the numeric value of the 2nd char in string and adds i
-            int horizontalPlacement = Character.getNumericValue(shipCoordinate.charAt(1)) + i;
-            if (horizontalPlacement > 7 && Character.getNumericValue(shipCoordinate.charAt(1)) > 6){
+            int horizontalPlacement = Character.getNumericValue(shipCoordinate.charAt(1)) + i - 1;
+            //if horizontalPlacement > 6
+            if (horizontalPlacement > 6 && Character.getNumericValue(shipCoordinate.charAt(1)) > 6 &&  vertHor == 'h' || vertHor == 'H'){
                 System.out.println("Not a valid placement!");
                 break;
             }
@@ -21,7 +22,7 @@ public class Battleship extends Ship {
                         //switch case for horizontal or vert
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[1][horizontalPlacement - 1] = symbol;
+                                gameBoard[1][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> {
@@ -34,7 +35,7 @@ public class Battleship extends Ship {
                     case 'b', 'B':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[2][horizontalPlacement - 1] = symbol;
+                                gameBoard[2][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> {
@@ -46,7 +47,7 @@ public class Battleship extends Ship {
                     case 'c', 'C':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[3][horizontalPlacement - 1] = symbol;
+                                gameBoard[3][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> {
@@ -58,7 +59,7 @@ public class Battleship extends Ship {
                     case 'd', 'D':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[4][horizontalPlacement - 1] = symbol;
+                                gameBoard[4][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> {
@@ -70,7 +71,7 @@ public class Battleship extends Ship {
                     case 'e', 'E':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[5][horizontalPlacement - 1] = symbol;
+                                gameBoard[5][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> {
@@ -82,7 +83,7 @@ public class Battleship extends Ship {
                     case 'f', 'F':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[6][horizontalPlacement - 1] = symbol;
+                                gameBoard[6][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> {
@@ -94,7 +95,7 @@ public class Battleship extends Ship {
                     case 'g', 'G':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[7][horizontalPlacement - 1] = symbol;
+                                gameBoard[7][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> System.out.println("Not valid placement!");
@@ -103,7 +104,7 @@ public class Battleship extends Ship {
                     case 'h', 'H':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[8][horizontalPlacement - 1] = symbol;
+                                gameBoard[8][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> System.out.println("Not valid placement!");
@@ -112,7 +113,7 @@ public class Battleship extends Ship {
                     case 'i', 'I':
                         switch (vertHor) {
                             case 'h', 'H' -> {
-                                gameBoard[9][horizontalPlacement - 1] = symbol;
+                                gameBoard[9][horizontalPlacement] = symbol;
                                 placed = true;
                             }
                             case 'v', 'V' -> System.out.println("Not valid placement!");
