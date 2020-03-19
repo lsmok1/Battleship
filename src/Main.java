@@ -45,17 +45,21 @@ public class Main {
         player1.setShipCoordinate(scan.nextLine());
         System.out.println("Vertical or Horizontal? (H/V): ");
         player1.setVertHor(scan.nextLine().charAt(0));
+        b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+//        p1Board.printGameBoard(gameBoard);
         while (!b1.placed) {
             System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
             player1.setShipCoordinate(scan.nextLine());
             System.out.println("Vertical or Horizontal? (H/V): ");
             player1.setVertHor(scan.nextLine().charAt(0));
+            //using the placeShip method after every scan to see if the boolean turned to true
+            b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
             if (b1.placed) {
                 break;
             }
-            b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
-            p1Board.printGameBoard(gameBoard);
         }
+        //if placed, break the loop and print board
+        p1Board.printGameBoard(gameBoard);
 //        while (!player1.placedCarrier) {
 //            System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
 //            player1.setShipCoordinate(scan.nextLine());

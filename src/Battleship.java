@@ -94,7 +94,6 @@ public class Battleship extends Ship {
                                 gameBoard[7][horizontalPlacement] = symbol;
                                 placed = true;
                             }
-                            case 'v', 'V' -> System.out.println("Not valid placement!");
                         }
                         break;
                     case 'h', 'H':
@@ -103,7 +102,6 @@ public class Battleship extends Ship {
                                 gameBoard[8][horizontalPlacement] = symbol;
                                 placed = true;
                             }
-                            case 'v', 'V' -> System.out.println("Not valid placement!");
                         }
                         break;
                     case 'i', 'I':
@@ -112,14 +110,21 @@ public class Battleship extends Ship {
                                 gameBoard[9][horizontalPlacement] = symbol;
                                 placed = true;
                             }
-                            case 'v', 'V' -> System.out.println("Not valid placement!");
                         }
                         break;
                     default:
-                        System.out.println("not valid");
+                        placed = false;
                         break;
                 }
             }
+//            for (char[] row : gameBoard) {
+//                for (char b : row) {
+//                    if (b == 'b') {
+//                        shipPlacements.add(b);
+//                        System.out.println(shipPlacements);
+//                    }
+//                }
+//            }
         }
 
     }
