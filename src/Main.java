@@ -2,18 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        char[][] gameBoard = {
-                {' ', '1', '2', '3', '4', '5', '6', '7', '8', '9'},
-                {'A', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'B', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'C', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'D', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'E', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'F', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'G', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'H', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
-                {'I', '~', '~', '~', '~', '~', '~', '~', '~', '~'}
-        };
 
         Board p1Board = new Board(); //player1's actual board
         Board p2Board = new Board(); //player2's actual board
@@ -37,37 +25,39 @@ public class Main {
         Player player2 = new Player();
         System.out.println("Enter Player 2 name: ");
         player2.setName(scan.nextLine());
-        System.out.println("Okay, " + player1.getName() + " and " + player2.getName() + "! Get ready to start!");
+        System.out.println("Okay, " + player1.getName() + " and " + player2.getName() + "! Get ready to start! " + player1.getName() + " will place their 3 ships first!");
+        //initing ship objects for player1
         Battleship b1 = new Battleship();
         b1.setSize(4);
         b1.setSymbol('b');
+        Carrier c1 = new Carrier();
+        c1.setSize(5);
+        c1.setSymbol('c');
+        Destroyer d1 = new Destroyer();
+        d1.setSize(2);
+        d1.setSymbol('d');
+
         System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
         player1.setShipCoordinate(scan.nextLine());
         System.out.println("Vertical or Horizontal? (H/V): ");
         player1.setVertHor(scan.nextLine().charAt(0));
-        b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+        b1.placeShip(p1Board.gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
 //        p1Board.printGameBoard(gameBoard);
+
         while (!b1.placed) {
             System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
             player1.setShipCoordinate(scan.nextLine());
             System.out.println("Vertical or Horizontal? (H/V): ");
             player1.setVertHor(scan.nextLine().charAt(0));
             //using the placeShip method after every scan to see if the boolean turned to true
-            b1.placeShip(gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+            b1.placeShip(p1Board.gameBoard, b1.getSize(), b1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
             if (b1.placed) {
                 break;
             }
         }
         //if placed, break the loop and print board
-        p1Board.printGameBoard(gameBoard);
-//        while (!player1.placedCarrier) {
-//            System.out.println(player1.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
-//            player1.setShipCoordinate(scan.nextLine());
-//            System.out.println("Vertical or Horizontal? (H/V): ");
-//            player1.setVertHor(scan.next().charAt(0));
-//            Carrier c1 = new Carrier();
-//
-//        }
+        p1Board.printGameBoard(p1Board.gameBoard);
+        p2Board.printGameBoard(p2Board.gameBoard);
 
 
 

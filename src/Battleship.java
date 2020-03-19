@@ -117,17 +117,10 @@ public class Battleship extends Ship {
                         break;
                 }
             }
-//            for (char[] row : gameBoard) {
-//                for (char b : row) {
-//                    if (b == 'b') {
-//                        shipPlacements.add(b);
-//                        System.out.println(shipPlacements);
-//                    }
-//                }
-//            }
         }
 
     }
+
 
 }
 
