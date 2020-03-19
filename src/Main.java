@@ -14,11 +14,7 @@ public class Main {
                 {'H', '~', '~', '~', '~', '~', '~', '~', '~', '~'},
                 {'I', '~', '~', '~', '~', '~', '~', '~', '~', '~'}
         };
-        for (int i = 0; i < gameBoard.length; i++) {
-            for (int j = 0; j < gameBoard[i].length; j++) {
 
-            }
-        }
         Board p1Board = new Board(); //player1's actual board
         Board p2Board = new Board(); //player2's actual board
         System.out.println(

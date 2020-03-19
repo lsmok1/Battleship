@@ -5,8 +5,9 @@ public class Battleship extends Ship {
         //iterates thru the size of the ship, gets the numeric value of the 2nd char in the coordinates
 
         for (int i = 1; i <= size; i++) {
+            //takes the numeric value of the 2nd char in string and adds i
             int horizontalPlacement = Character.getNumericValue(shipCoordinate.charAt(1)) + i;
-            if (horizontalPlacement > 6){
+            if (horizontalPlacement > 7 && Character.getNumericValue(shipCoordinate.charAt(1)) > 6){
                 System.out.println("Not a valid placement!");
                 break;
             }
