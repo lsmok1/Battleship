@@ -11,11 +11,7 @@ public class Battleship extends Ship {
             if (horizontalPlacement > 6 && Character.getNumericValue(shipCoordinate.charAt(1)) > 6 &&  vertHor == 'h' || vertHor == 'H'){
 //                System.out.println("Not a valid placement!");
                 break;
-            }
-//            if (shipCoordinate.charAt(0) == 'g' || shipCoordinate.charAt(0) == 'G' && vertHor == 'v' || vertHor == 'V') {
-//                System.out.println("NOPE!");
-//                break;
-//            }
+            } else {
                 //switch case for the first char in coordinates
                 switch (shipCoordinate.charAt(0)) {
                     case 'a', 'A':
@@ -123,6 +119,7 @@ public class Battleship extends Ship {
                         System.out.println("not valid");
                         break;
                 }
+            }
         }
 
     }
