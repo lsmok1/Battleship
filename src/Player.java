@@ -1,7 +1,7 @@
 public class Player {
-    boolean placedBattleship = false;
-    boolean placedCarrier = false;
-    boolean placedDestroyer = false;
+//    boolean placedBattleship = false;
+//    boolean placedCarrier = false;
+//    boolean placedDestroyer = false;
 
     //made name private, so have to use getters and setters in the main method
     private String name;

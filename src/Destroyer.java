@@ -1,6 +1,6 @@
 public class Destroyer extends Ship {
     @Override
-    void placeShip(char[][] gameBoard, int size, char symbol, String shipCoordinate, char vertHor, boolean placed) {
+    void placeShip(char[][] gameBoard, int size, char symbol, String shipCoordinate, char vertHor) {
         Destroyer d1 = new Destroyer();
         d1.setSize(2);
         d1.setSymbol('d');

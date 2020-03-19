@@ -18,5 +18,5 @@ public abstract class Ship {
         this.symbol = symbol;
     }
     //creating the abstract method that the carrier and battleship can override to add functionality
-    abstract void placeShip(char[][] gameBoard, int size, char symbol, String shipCoordinate, char vertHor, boolean placed);
+    abstract void placeShip(char[][] gameBoard, int size, char symbol, String shipCoordinate, char vertHor);
 }
