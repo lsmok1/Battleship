@@ -1,10 +1,15 @@
+import java.awt.*;
+import java.util.Arrays;
+import java.util.List;
+
 public class Battleship extends Ship {
     boolean placed = false;
     @Override
     void placeShip(char[][] gameBoard, int size, char symbol, String shipCoordinate, char vertHor) {
-        //iterates thru the size of the ship, gets the numeric value of the 2nd char in the coordinates
 
+        //iterates thru the size of the ship, gets the numeric value of the 2nd char in the coordinates
         for (int i = 1; i <= size; i++) {
+
             //takes the numeric value of the 2nd char in string and adds i
             int horizontalPlacement = Character.getNumericValue(shipCoordinate.charAt(1)) + i - 1;
             //if horizontalPlacement > 6
@@ -19,6 +24,9 @@ public class Battleship extends Ship {
                         switch (vertHor) {
                             case 'h', 'H' -> {
                                 gameBoard[1][horizontalPlacement] = symbol;
+//                                shipPlacements.add(gameBoard);
+//                                List A1H = Arrays.asList(i-1, horizontalPlacement);
+//                                shipPlacements.add((java.awt.List) A1H);
                                 placed = true;
                             }
                             case 'v', 'V' -> {

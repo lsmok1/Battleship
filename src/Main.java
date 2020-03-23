@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        ArrayList<Board> checkValid = new ArrayList<>();
 
         Board p1Board = new Board(); //player1's actual board
         Board p2Board = new Board(); //player2's actual board
@@ -55,9 +57,36 @@ public class Main {
                 break;
             }
         }
+
         //if placed, break the loop and print board
         p1Board.printGameBoard(p1Board.gameBoard);
-        p2Board.printGameBoard(p2Board.gameBoard);
+
+
+        System.out.println(player1.getName() + ", enter a coordinate for your Carrier! (A1 - I9): ");
+        player1.setShipCoordinate(scan.nextLine());
+        System.out.println("Vertical or Horizontal? (H/V): ");
+        player1.setVertHor(scan.nextLine().charAt(0));
+        c1.placeShip(p1Board.gameBoard, c1.getSize(), c1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+//        p1Board.checkShipPlacement(p1Board.gameBoard);
+//        System.out.println(p1Board.validPlace);
+        while (!c1.placed) {
+            System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
+            player1.setShipCoordinate(scan.nextLine());
+            System.out.println("Vertical or Horizontal? (H/V): ");
+            player1.setVertHor(scan.nextLine().charAt(0));
+            //using the placeShip method after every scan to see if the boolean turned to true
+            c1.placeShip(p1Board.gameBoard, c1.getSize(), c1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+//            p1Board.checkShipPlacement(p1Board.gameBoard);
+            p1Board.printGameBoard(p1Board.gameBoard);
+            if (c1.placed) {
+//                System.out.println("aogjfiasmfams");
+                break;
+            }
+        }
+        //if placed, break the loop and print board
+        p1Board.printGameBoard(p1Board.gameBoard);
+
+        //p2Board.printGameBoard(p2Board.gameBoard);
 
 
 
