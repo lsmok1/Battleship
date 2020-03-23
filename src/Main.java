@@ -162,7 +162,7 @@ public class Main {
         player2.setShipCoordinate(scan.nextLine());
         System.out.println("Vertical or Horizontal? (H/V): ");
         player2.setVertHor(scan.nextLine().charAt(0));
-        d2.placeShip(p1Board.gameBoard, d2.getSize(), d2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+        d2.placeShip(p2Board.gameBoard, d2.getSize(), d2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
         p2Board.printGameBoard(p2Board.gameBoard);
 
         while (!d2.placed) {
@@ -177,10 +177,46 @@ public class Main {
             }
         }
         p2Board.printGameBoard(p2Board.gameBoard);
-
         //creating new boards for display only (player1 gets player2Display, p2 gets p1Display
         Board p2Display = new Board();
         Board p1Display = new Board();
+        p2Display.printGameBoard(p2Display.gameBoard);
+
+        Missile m1 = new Missile();
+        Missile m2 = new Missile();
+
+        while (!m1.winnerWinner || !m2.winnerWinner) {
+            System.out.println(player1.getName() + "'s turn! Enter a coordinate for your missile (A1 - I9): ");
+            player1.setMissileCoordinate(scan.nextLine());
+            m1.launchMissile(p2Board.gameBoard, player1.getMissileCoordinate(), p2Display.gameBoard);
+            p2Display.printGameBoard(p2Display.gameBoard);
+
+            while (!m1.validGuess) {
+                System.out.println("Not a valid guess! Enter a new coordinate (A1 - I9): ");
+                player1.setMissileCoordinate(scan.nextLine());
+                m1.launchMissile(p2Board.gameBoard, player1.getMissileCoordinate(), p2Display.gameBoard);
+                p2Display.printGameBoard(p2Display.gameBoard);
+            }
+
+            System.out.println(player2.getName() + "'s turn! Enter a coordinate for your missile (A1 - I9): ");
+            player2.setMissileCoordinate(scan.nextLine());
+            m2.launchMissile(p1Board.gameBoard, player2.getMissileCoordinate(), p1Display.gameBoard);
+            p1Display.printGameBoard(p1Display.gameBoard);
+
+            while (!m2.validGuess) {
+                System.out.println("Not a valid guess! Enter a new coordinate (A1 - I9): ");
+                player2.setMissileCoordinate(scan.nextLine());
+                m2.launchMissile(p2Board.gameBoard, player1.getMissileCoordinate(), p1Display.gameBoard);
+                p1Display.printGameBoard(p1Display.gameBoard);
+            }
+            if (m1.winnerWinner) {
+                System.out.println(player1.getName() + " won!");
+                break;
+            } else if (m2.winnerWinner) {
+                System.out.println(player2.getName() + " won!");
+                break;
+            }
+        }
 
 /*
 Commenting out for testing purposes

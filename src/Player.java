@@ -25,5 +25,7 @@ public class Player {
         return vertHor;
     }
 
-    private int missileCoordinate;
+    private String missileCoordinate;
+    public void setMissileCoordinate(String missileCoordinate) { this.missileCoordinate = missileCoordinate; }
+    public String getMissileCoordinate() { return missileCoordinate; }
 }
