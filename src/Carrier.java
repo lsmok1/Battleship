@@ -139,15 +139,6 @@ public class Carrier extends Ship {
                                     gameBoard[6][horizontalPlacement] = symbol;
                                 }
                             }
-                            case 'v', 'V' -> {
-                                if (gameBoard[5 + i][Character.getNumericValue(shipCoordinate.charAt(1))] == 'b') {
-                                    placed = false;
-                                    break outer;
-                                } else if (gameBoard[5 + i][Character.getNumericValue(shipCoordinate.charAt(1))] == '~' && gameBoard[5 + i][Character.getNumericValue(shipCoordinate.charAt(1))] != 'b') {
-                                    placed = true;
-                                    gameBoard[5 + i][Character.getNumericValue(shipCoordinate.charAt(1))] = symbol;
-                                }
-                            }
                         }
                         break;
                     case 'g', 'G':

@@ -2,11 +2,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class Ship {
-//    ArrayList<char[][]> shipPlacements = new ArrayList<>();
-//    @Override
-//    public String toString(){
-//        return shipPlacements.toString();
-//    }
     //initing the size of the ship and creating public getters and setters for the battleship and carrier
     //only doing this to demonstrate encapsulation
     private int size;

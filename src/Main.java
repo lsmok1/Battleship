@@ -3,21 +3,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Board> checkValid = new ArrayList<>();
 
         Board p1Board = new Board(); //player1's actual board
         Board p2Board = new Board(); //player2's actual board
         System.out.println(
                 """
-               Welcome to Battleship! This is a 2-person game where you each have your own map to place your ships!
-               You will both get 3 ships: 1 [Battleship], 1 [Carrier], and 1 [Destroyer]. The [Battleship] has a
-               size of 4 tiles, the [Carrier] has a size of 5 tiles, and the [Destroyer] has a size of 2 tiles. You can
-               place them anywhere on your (9x9) map either horizontally or vertically and so can the other player.
-               Every turn, each player must decide which coordinates to send their missile (e.g. A1). Every 'miss' is
-               represented by an 'm', while every hit is represented with an 'x'! You will not have access to the
-               ability to see where your opponents' ships are placed. You must hit all the tiles containing the ship in
-               order to sink the ship. Once all opposing ships are sunk (by whichever player), the game will end. GLHF!
-                """
+                        Welcome to Battleship! This is a 2-person game where you each have your own map to place your ships!
+                        You will both get 3 ships: 1 [Battleship], 1 [Carrier], and 1 [Destroyer]. The [Battleship] has a
+                        size of 4 tiles, the [Carrier] has a size of 5 tiles, and the [Destroyer] has a size of 2 tiles. You can
+                        place them anywhere on your (9x9) map either horizontally or vertically and so can the other player.
+                        Every turn, each player must decide which coordinates to send their missile (e.g. A1). Every 'miss' is
+                        represented by an 'm', while every hit is represented with an 'x'! You will not have access to the
+                        ability to see where your opponents' ships are placed. You must hit all the tiles containing the ship in
+                        order to sink the ship. Once all opposing ships are sunk (by whichever player), the game will end. GLHF!
+                         """
         );
         Scanner scan = new Scanner(System.in);
         Player player1 = new Player();
@@ -67,8 +66,8 @@ public class Main {
         System.out.println("Vertical or Horizontal? (H/V): ");
         player1.setVertHor(scan.nextLine().charAt(0));
         c1.placeShip(p1Board.gameBoard, c1.getSize(), c1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
-//        p1Board.checkShipPlacement(p1Board.gameBoard);
-//        System.out.println(p1Board.validPlace);
+        p1Board.printGameBoard(p1Board.gameBoard);
+
         while (!c1.placed) {
             System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
             player1.setShipCoordinate(scan.nextLine());
@@ -76,19 +75,108 @@ public class Main {
             player1.setVertHor(scan.nextLine().charAt(0));
             //using the placeShip method after every scan to see if the boolean turned to true
             c1.placeShip(p1Board.gameBoard, c1.getSize(), c1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
-//            p1Board.checkShipPlacement(p1Board.gameBoard);
-            p1Board.printGameBoard(p1Board.gameBoard);
             if (c1.placed) {
-//                System.out.println("aogjfiasmfams");
+                break;
+            }
+        }
+            //if placed, break the loop and print board
+        p1Board.printGameBoard(p1Board.gameBoard);
+
+        System.out.println(player1.getName() + ", enter a coordinate for your Destroyer! (A1 - I9): ");
+        player1.setShipCoordinate(scan.nextLine());
+        System.out.println("Vertical or Horizontal? (H/V): ");
+        player1.setVertHor(scan.nextLine().charAt(0));
+        d1.placeShip(p1Board.gameBoard, d1.getSize(), d1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+        p1Board.printGameBoard(p1Board.gameBoard);
+
+        while (!d1.placed) {
+            System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
+            player1.setShipCoordinate(scan.nextLine());
+            System.out.println("Vertical or Horizontal? (H/V): ");
+            player1.setVertHor(scan.nextLine().charAt(0));
+            //using the placeShip method after every scan to see if the boolean turned to true
+            d1.placeShip(p1Board.gameBoard, d1.getSize(), d1.getSymbol(), player1.getShipCoordinate(), player1.getVertHor());
+            if (d1.placed) {
+                break;
+            }
+        }
+        p1Board.printGameBoard(p1Board.gameBoard);
+        //p2Board.printGameBoard(p2Board.gameBoard);
+
+        //initing for p2
+        Battleship b2 = new Battleship();
+        b2.setSize(4);
+        b2.setSymbol('b');
+        Carrier c2 = new Carrier();
+        c2.setSize(5);
+        c2.setSymbol('c');
+        Destroyer d2 = new Destroyer();
+        d2.setSize(2);
+        d2.setSymbol('d');
+
+        System.out.println(player2.getName() + "'s turn! Enter coordinates for your Battleship! (A1 - I9): ");
+        player2.setShipCoordinate(scan.nextLine());
+        System.out.println("Vertical or Horizontal? (H/V): ");
+        player2.setVertHor(scan.nextLine().charAt(0));
+        b2.placeShip(p2Board.gameBoard, b2.getSize(), b2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+//        p1Board.printGameBoard(gameBoard);
+
+        while (!b2.placed) {
+            System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
+            player2.setShipCoordinate(scan.nextLine());
+            System.out.println("Vertical or Horizontal? (H/V): ");
+            player2.setVertHor(scan.nextLine().charAt(0));
+            //using the placeShip method after every scan to see if the boolean turned to true
+            b2.placeShip(p2Board.gameBoard, b2.getSize(), b2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+            if (b2.placed) {
+                break;
+            }
+        }
+
+        //if placed, break the loop and print board
+        p2Board.printGameBoard(p2Board.gameBoard);
+
+
+        System.out.println(player2.getName() + ", enter a coordinate for your Carrier! (A1 - I9): ");
+        player2.setShipCoordinate(scan.nextLine());
+        System.out.println("Vertical or Horizontal? (H/V): ");
+        player2.setVertHor(scan.nextLine().charAt(0));
+        c2.placeShip(p2Board.gameBoard, c2.getSize(), c2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+        p2Board.printGameBoard(p2Board.gameBoard);
+
+        while (!c2.placed) {
+            System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
+            player2.setShipCoordinate(scan.nextLine());
+            System.out.println("Vertical or Horizontal? (H/V): ");
+            player2.setVertHor(scan.nextLine().charAt(0));
+            //using the placeShip method after every scan to see if the boolean turned to true
+            c2.placeShip(p2Board.gameBoard, c2.getSize(), c2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+            if (c2.placed) {
                 break;
             }
         }
         //if placed, break the loop and print board
-        p1Board.printGameBoard(p1Board.gameBoard);
+        p2Board.printGameBoard(p2Board.gameBoard);
 
-        //p2Board.printGameBoard(p2Board.gameBoard);
+        System.out.println(player2.getName() + ", enter a coordinate for your Destroyer! (A1 - I9): ");
+        player2.setShipCoordinate(scan.nextLine());
+        System.out.println("Vertical or Horizontal? (H/V): ");
+        player2.setVertHor(scan.nextLine().charAt(0));
+        d2.placeShip(p1Board.gameBoard, d2.getSize(), d2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+        p2Board.printGameBoard(p2Board.gameBoard);
 
-
+        while (!d2.placed) {
+            System.out.println("Can't place here! Please enter a new coordinate (A1 - I9): ");
+            player2.setShipCoordinate(scan.nextLine());
+            System.out.println("Vertical or Horizontal? (H/V): ");
+            player2.setVertHor(scan.nextLine().charAt(0));
+            //using the placeShip method after every scan to see if the boolean turned to true
+            d2.placeShip(p2Board.gameBoard, d2.getSize(), d2.getSymbol(), player2.getShipCoordinate(), player2.getVertHor());
+            if (d2.placed) {
+                break;
+            }
+        }
+        p2Board.printGameBoard(p2Board.gameBoard);
 
         //creating new boards for display only (player1 gets player2Display, p2 gets p1Display
         Board p2Display = new Board();
@@ -107,3 +195,4 @@ Commenting out for testing purposes
  */
     }
 }
+
