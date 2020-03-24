@@ -9,6 +9,15 @@ public class Missile {
     char gotEm = 'x';
 
     public void launchMissile (char[][] gameBoard, String missileCoordinate, char[][] gameBoardDisplay) {
+        int xCounter = (int) Arrays.stream(gameBoardDisplay)
+                .map(CharBuffer::wrap)
+                .flatMapToInt(CharBuffer::chars)
+                .filter(x -> x == 'x')
+                .count();
+
+        if (xCounter == 11) {
+            winnerWinner=true;
+        }
 
         switch (missileCoordinate.charAt(0)) {
             case 'A', 'a' -> {
@@ -128,16 +137,7 @@ public class Missile {
                     validGuess = true;
                 }
             }
-        }
 
-        int xCounter = (int) Arrays.stream(gameBoardDisplay)
-                .map(CharBuffer::wrap)
-                .flatMapToInt(CharBuffer::chars)
-                .filter(x -> x == 'x')
-                .count();
-
-        if (xCounter == 11) {
-            winnerWinner=true;
         }
     }
 }
